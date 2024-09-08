@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://bo8blq26x1mjk"]
+
+[ext_resource type="Script" path="res://Scripts/cannonball.gd" id="1_wkwmt"]
+[ext_resource type="Texture2D" uid="uid://cv1q6lbmyi427" path="res://Assets/pirates.png" id="2_osn5g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g2ytf"]
+radius = 14.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_missh"]
+radius = 57.0088
+
+[node name="Cannonball" type="RigidBody2D"]
+mass = 10.0
+freeze = true
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_wkwmt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-2, -2)
+scale = Vector2(4, 4)
+texture = ExtResource("2_osn5g")
+hframes = 32
+vframes = 32
+frame = 242
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_g2ytf")
+
+[node name="Explosion" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Explosion"]
+shape = SubResource("CircleShape2D_missh")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Explosion" to="." method="_on_explosion_body_entered"]
+[connection signal="body_exited" from="Explosion" to="." method="_on_explosion_body_exited"]

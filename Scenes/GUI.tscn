@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://c37026tbbjeij"]
+
+[ext_resource type="FontFile" uid="uid://dins4rl250nkb" path="res://Assets/arrr-matey-bb.regular.ttf" id="1_itrcr"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 51.0
+offset_right = 1012.0
+offset_bottom = 179.0
+theme_override_fonts/font = ExtResource("1_itrcr")
+theme_override_font_sizes/font_size = 58
+text = "Blue Player, Get That Bastard!"
+horizontal_alignment = 1
+vertical_alignment = 1

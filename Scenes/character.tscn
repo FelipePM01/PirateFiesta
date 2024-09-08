@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfvja2f8rhdmi"]
+
+[ext_resource type="Texture2D" uid="uid://cv1q6lbmyi427" path="res://Assets/pirates.png" id="1_com7a"]
+[ext_resource type="Script" path="res://Scripts/character.gd" id="1_puree"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dna5y"]
+friction = 0.1
+rough = true
+bounce = 0.6
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y5yt3"]
+radius = 25.0
+height = 66.0
+
+[node name="Character" type="RigidBody2D"]
+mass = 10.0
+physics_material_override = SubResource("PhysicsMaterial_dna5y")
+center_of_mass_mode = 1
+center_of_mass = Vector2(0, 15)
+inertia = 10.77
+linear_velocity = Vector2(200, 50)
+angular_damp_mode = 1
+angular_damp = 100.0
+script = ExtResource("1_puree")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_y5yt3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("1_com7a")
+hframes = 16
+vframes = 16
+frame = 18
